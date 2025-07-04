@@ -1,0 +1,16 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+
+/.vs/Ciloci.Flee
+/Lib/.vs
+/Lib/obj
+/.vs/ProjectEvaluation
+/lib/bin/Debug
+/.vs/Flee.NET
+/Flee/bin/Debug
+/Flee/obj
+/Flee.Tests/bin/Debug
+/Flee.Tests/obj
+/Flee.Tests/TestScripts

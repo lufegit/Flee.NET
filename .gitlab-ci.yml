@@ -1,0 +1,12 @@
+variables:
+  PROJECT_NAME: "Flee.NET" #project sln file without extension
+  APP_VERSION: 2.2.0
+  FORCED_VERSION_UPDATE: "true"
+  APP_NAME_VERACODE: 'Flee.NET.VERACODE'
+  SCAN_DIR: ${CI_PROJECT_DIR}/${APP_NAME_VERACODE}
+  IS_RELEASE_BRANCH: 'true'
+  
+include:
+  - project: 'fm/devops/ci-tools/shared-pipelines'
+    ref: main
+    file: 'pipelines/projects/flee.net.yml'

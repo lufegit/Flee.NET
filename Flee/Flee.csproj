@@ -1,0 +1,51 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <AssemblyName>Flee.NET</AssemblyName>
+        <AssemblyTitle>Flee.NET</AssemblyTitle>
+        <Description>Flee.NET is a fast lightweight expression evaluator for .NET Framework 4.7.2 and .NET 8.</Description>
+        <Copyright>Copyright © 2025 Flee Contributors</Copyright>
+        <Authors>Flee Contributors</Authors>
+        <Product>Flee.NET</Product>
+        <TargetFrameworks>net8.0;net472</TargetFrameworks>
+        <ImplicitUsings>disable</ImplicitUsings>
+        <Nullable>disable</Nullable>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <PackageVersion>2.2.0</PackageVersion>
+	    <AssemblyVersion>2.2.0</AssemblyVersion>
+	    <FileVersion>2.2.0</FileVersion>
+	    <Version>2.2.0</Version>
+        <Title>Flee.NET</Title>
+        <PackageProjectUrl>https://github.com/lufegit/Flee.NET</PackageProjectUrl>
+        <PackageLicenseExpression>LGPL-2.1-or-later</PackageLicenseExpression>
+        <RepositoryUrl>https://github.com/lufegit/Flee.NET</RepositoryUrl>
+        <PackageTags>flee,expression evaluator,fast,.net,.net framework,net472,net8</PackageTags>
+	    <Version Condition="'$(Version)' == ''">1.0.0.0</Version>
+	    <AssemblyVersion Condition="'$(AssemblyVersion)' == ''">$(Version.Split('-')[0])</AssemblyVersion>
+	    <FileVersion Condition="'$(FileVersion)' == ''">$(Version.Split('-')[0])</FileVersion>
+	    <InformationalVersion Condition="'$(InformationalVersion)' == ''">$(Version)</InformationalVersion>
+    </PropertyGroup>
+    <ItemGroup>
+        <None Remove="Resources\DocComments.xml" />
+    </ItemGroup>
+    <ItemGroup>
+        <Content Include="Resources\DocComments.xml" />
+    </ItemGroup>
+	<Target Name="NonSdkGenerateAssemblyInfo" DependsOnTargets="PrepareForBuild" BeforeTargets="BeforeBuild" Condition="('$(UsingMicrosoftNETSdk)' != 'True' And '$(GenerateAssemblyInfo)' != 'False')">
+		<ItemGroup>
+			<NonSdkAssemblyAttributes Include="AssemblyVersion">
+				<_Parameter1>$(AssemblyVersion)</_Parameter1>
+			</NonSdkAssemblyAttributes>
+			<NonSdkAssemblyAttributes Include="AssemblyFileVersion">
+				<_Parameter1>$(FileVersion)</_Parameter1>
+			</NonSdkAssemblyAttributes>
+			<NonSdkAssemblyAttributes Include="AssemblyInformationalVersion">
+				<_Parameter1>$(InformationalVersion)</_Parameter1>
+			</NonSdkAssemblyAttributes>
+		</ItemGroup>
+		<WriteCodeFragment AssemblyAttributes="@(NonSdkAssemblyAttributes)" Language="c#" OutputDirectory="$(IntermediateOutputPath)" OutputFile="AssemblyInfo.cs">
+			<Output TaskParameter="OutputFile" ItemName="Compile" />
+			<Output TaskParameter="OutputFile" ItemName="FileWrites" />
+		</WriteCodeFragment>
+	</Target>
+</Project>

@@ -1,0 +1,18 @@
+Flee - Fast Lightweight Expression Evaluator
+
+Original Author:
+Eugene Ciloci
+
+This project is a derivative work based on the original Flee codebase (VB.NET) licensed under LGPL v2.1.
+
+Modifications and C# port by:
+Luis Festas (https://github.com/lufegit)
+
+Key modifications:
+- Ported from VB.NET to C#
+- Targeted .NET Framework 4.7.2 and .NET 8.0
+- Removed dependencies on deprecated internal Reflection.Emit APIs
+- Other maintenance and modernization improvements
+
+This project remains licensed under the GNU Lesser General Public License v2.1.
+See the LICENSE file for details.
